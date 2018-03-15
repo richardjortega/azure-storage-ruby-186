@@ -10,6 +10,7 @@ build:
     - lms
     - magic
     - docker+machine
+    - uce-std
   script:
     - docker build -t $IMAGE_TAG .
     - docker push $IMAGE_TAG
