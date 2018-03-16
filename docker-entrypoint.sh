@@ -2,5 +2,6 @@
 set -eo pipefail
 shopt -s nullglob
 
-
 service mysqld start
+
+/bin/bash
