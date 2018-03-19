@@ -10,7 +10,7 @@ RUN rpm -ivh mysql57-community-release-el6-11.noarch.rpm
 RUN yum update &&\
     yum-config-manager --disable mysql57-community &&\
     yum-config-manager --enable mysql56-community &&\
-    yum -y install mysql-community-server
+    yum -y install mysql-community-server mysql-community-devel mysql-community-libs
 
 RUN gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3 &&\
     curl -sSL https://get.rvm.io | bash -s
