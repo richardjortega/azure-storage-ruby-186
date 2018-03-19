@@ -2,7 +2,8 @@ FROM centos:6.9
 
 RUN yum -y update; yum clean all &&\
     yum -y install epel-release wget redis git wget yum-utils; yum clean all &&\
-    yum -y install curl ca-certificates gnupg2 build-essential; yum clean all
+    yum -y install curl ca-certificates gnupg2 build-essential; yum clean all &&\
+    yum -y install zlib-devel libxml2-devel libxslt libxslt-devel
 
 RUN wget https://dev.mysql.com/get/mysql57-community-release-el6-11.noarch.rpm
 RUN rpm -ivh mysql57-community-release-el6-11.noarch.rpm
