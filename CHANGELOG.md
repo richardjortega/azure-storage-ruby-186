@@ -1,5 +1,10 @@
 ## [Unreleased]
 
+## [1.0.1] - 2018-03-21
+### Added
+
+* ImageMagick for the identify command
+
 ## [1.0.0] - 2018-03-21
 ### Added
 
