@@ -3,7 +3,7 @@ FROM centos:6.9
 RUN yum -y update; yum clean all &&\
     yum -y install epel-release wget git wget yum-utils; yum clean all &&\
     yum -y install curl ca-certificates gnupg2 build-essential; yum clean all &&\
-    yum -y install zlib-devel libxml2-devel libxslt libxslt-devel unzip sudo gpg ImageMagick
+    yum -y install zlib-devel libxml2-devel libxslt libxslt-devel zip unzip sudo gpg ImageMagick
 
 # We require an older version of gcc, newer gcc causes bugs in ruby-1.8.6
 RUN yum -y install texinfo gcc; yum clean all
