@@ -19,6 +19,8 @@ RUN yum update &&\
     yum-config-manager --enable mysql56-community &&\
     yum -y install mysql-community-server mysql-community-devel mysql-community-libs
 
+RUN sed -i 's/^sql_mode=.*/sql_mode=NO_ENGINE_SUBSTITUTION/g' /etc/my.cnf
+
 # Get keys needed to verify rvm install
 RUN gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3 &&\
     curl -sSL https://get.rvm.io | bash -s
