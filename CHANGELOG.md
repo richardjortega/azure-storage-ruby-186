@@ -1,6 +1,13 @@
 ## [Unreleased]
 
 
+## [1.0.3] - 2018-03-21
+### Added
+
+* Change file privileges for mysql to allow exporting to CSV
+* Added ruby 2.3.1 for use in haiku-core
+* Store the mysql 5.6 rpm locally
+
 ## [1.0.2] - 2018-03-21
 ### Added
 

@@ -12,14 +12,13 @@ RUN cd /usr/src/gcc-4.1.2 && ./configure --prefix=/opt/gcc412 --program-suffix=4
     sed -i 's/^MAKEINFO.*/MAKEINFO = makeinfo/g' Makefile && make && make install
 
 # Install mysql 5.6 which matches production
-RUN wget https://dev.mysql.com/get/mysql57-community-release-el6-11.noarch.rpm
+COPY mysql/mysql57-community-release-el6-11.noarch.rpm .
 RUN rpm -ivh mysql57-community-release-el6-11.noarch.rpm
 RUN yum update &&\
     yum-config-manager --disable mysql57-community &&\
     yum-config-manager --enable mysql56-community &&\
     yum -y install mysql-community-server mysql-community-devel mysql-community-libs
-
-RUN sed -i 's/^sql_mode=.*/sql_mode=NO_ENGINE_SUBSTITUTION/g' /etc/my.cnf
+COPY mysql/my.cnf /etc/my.cnf
 
 # Setup redis v1.3
 COPY redis13 ./redis13
@@ -40,6 +39,8 @@ RUN gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3 &&\
 
 RUN /bin/bash -l -c ". /etc/profile.d/rvm.sh && rvm install 1.8.6-p383 --disable-binary --with-gcc=/opt/gcc412/bin/gcc412"
 RUN /bin/bash -l -c ". /etc/profile.d/rvm.sh && rvm install ruby-2.0.0-p353"
+RUN /bin/bash -l -c ". /etc/profile.d/rvm.sh && rvm install ruby-2.3.1"
+
 
 COPY bundler-1.0.23.gem .
 
