@@ -19,6 +19,8 @@ RUN yum update &&\
     yum-config-manager --enable mysql56-community &&\
     yum -y install mysql-community-server mysql-community-devel mysql-community-libs
 COPY mysql/my.cnf /etc/my.cnf
+RUN chown mysql:mysql /etc/my.cnf
+RUN chmod 600 /etc/my.cnf
 
 # Setup redis v1.3
 COPY redis13 ./redis13

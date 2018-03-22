@@ -1,6 +1,12 @@
 ## [Unreleased]
 
 
+## [1.0.4] - 2018-03-21
+### Added
+
+* Corrected permissions on /etc/my.cnf
+
+
 ## [1.0.3] - 2018-03-21
 ### Added
 
