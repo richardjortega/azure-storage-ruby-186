@@ -53,6 +53,10 @@ RUN /bin/bash -l -c ". /etc/profile.d/rvm.sh && rvm 1.8.6-p383@global do gem uni
     rvm use 1.8.6-p383@haiku --create &&\
     rvm use 2.0.0-p353@haiku_themes --create"
 
+# Add azure-storage-ruby
+COPY azure-storage-ruby ./azure-storage-ruby
+COPY Gemfile ./Gemfile
+
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod 755 /usr/local/bin/docker-entrypoint.sh
 

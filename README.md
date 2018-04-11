@@ -23,3 +23,10 @@ This image is primarily for use in a CI environment.
 * Clone this repository
 * Run `docker build .`
 * Start the image using `docker run -ti --rm <imageID from above> '/bin/bash'`
+
+
+
+# Notes
+
+faraday - 0.8.4
+nokogiri - 1.4.4
