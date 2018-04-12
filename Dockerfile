@@ -55,7 +55,10 @@ RUN /bin/bash -l -c ". /etc/profile.d/rvm.sh && rvm 1.8.6-p383@global do gem uni
 
 # Add azure-storage-ruby
 COPY azure-storage-ruby ./azure-storage-ruby
-COPY Gemfile ./Gemfile
+WORKDIR /azure-storage-ruby
+RUN /bin/bash -l -c "bundle install"
+
+WORKDIR /
 
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod 755 /usr/local/bin/docker-entrypoint.sh
